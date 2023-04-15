@@ -9,6 +9,9 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+const arjs = new THREEARL.LocationBased(scene , camera);
+const webcam = new THREEARL.WebcamRenderer(renderer);
+
 const geometry = new THREE.BoxGeometry( 2, 1, 1 );
 const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
 const cube = new THREE.Mesh( geometry, material );
