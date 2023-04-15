@@ -1,6 +1,6 @@
 //import * as THREE from 'three';
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-import * as THREEARL from 'https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js';
+//import * as THREEARL from 'https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, .1, 10000);
