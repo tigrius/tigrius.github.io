@@ -12,11 +12,11 @@ document.body.appendChild(renderer.domElement);
 const arjs = new THREEARL.LocationBased(scene , camera);
 const webcam = new THREEARL.WebcamRenderer(renderer);
 
-//const geometry = new THREE.BoxGeometry( 2, 1, 1 );
-//const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
-//const cube = new THREE.Mesh( geometry, material );
-//scene.add( cube );
-//cube.position.x = 1;
+const geometry = new THREE.BoxGeometry( 2, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+cube.position.x = 1;
 
 const geometry2 = new THREE.BoxGeometry(1,1,1);
 const material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
