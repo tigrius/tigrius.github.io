@@ -22,6 +22,7 @@ const geometry2 = new THREE.BoxGeometry(1,1,1);
 const material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
 const box = new THREE.Mesh( geometry2, material2);
 scene.add( box);
+box.position.x = 3;
 
 camera.position.z = 5;
 
