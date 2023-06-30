@@ -18,14 +18,18 @@ gltfLoader.load(
     '/src/ico.glb',
     function(gltf){
         icosphere = gltf.scene;
+        icosphere.name = "icosphere";
         icosphere.traverse(function(obj) {
             if(obj instanceof THREE.Mesh){
                 console.log("There are Icosphere");
                 obj.material.map = T_ocean;
+                if(obj.name == "Icosphere"){
+                    obj.material.map = T_desert;
+                }
             }
         });
-        icosphere.name = "icosphere";
-        
+        icosphere.children[2].material.map = T_desert;
+        scene.add(icosphere);
     },
     function(error){
         console.log(error);
@@ -33,6 +37,8 @@ gltfLoader.load(
 );
 
 console.log("cue");
+
+
 
 scene.add(icosphere);
 
@@ -110,5 +116,6 @@ function animate() {
     cube.rotation.z += 0.0;
     cube.rotation.y += 0.0;
 	renderer.render( scene, camera );
+    scene.remove(scene.getObjectByName('Icosphere1'));
 }
 animate();
