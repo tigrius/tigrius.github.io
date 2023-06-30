@@ -16,8 +16,7 @@ const icosphere = await (() => {
     });
 })();
 
-const texture1 = new THREE.TextureLoader().load('/src/p.png');
-const texture2 = new THREE.TextureLoader().load('/src/p.jpg');
+
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
 const T_desert = new THREE.TextureLoader().load('/src/desert.png');
 
