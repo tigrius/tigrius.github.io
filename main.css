@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{margin:0px}
 
 #info{
@@ -8,4 +9,16 @@ body{margin:0px}
     z-index: 100;
     display:block;
     color: aqua;
+=======
+body{margin:0px}
+
+#info{
+    position:absolute;
+    top: 10px;
+    width:100%;
+    text-align: center;
+    z-index: 100;
+    display:block;
+    color: aqua;
+>>>>>>> 0b573c9b3522ab63c2d9c17b1089232153b0d442
 }
