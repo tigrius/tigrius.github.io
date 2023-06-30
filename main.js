@@ -19,18 +19,15 @@ const icosphere = await (() => {
 
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
 const T_desert = new THREE.TextureLoader().load('/src/desert.png');
+const M_ocean = new THREE.MeshBasicMaterial({map: T_ocean})
 
-icosphere.traverse(function(node){
-    if (node instanceof THREE.Mesh) {
-        node.material.map = T_ocean;
-    }
-});
+icosphere.children[79].material.map = T_desert;
+icosphere.children[5].material = M_ocean;
+
 
 
 
 scene.add(icosphere);
-
-
 
 
 const renderer = new THREE.WebGLRenderer();
@@ -85,5 +82,6 @@ function animate() {
     cube.rotation.z += 0.0;
     cube.rotation.y += 0.0;
 	renderer.render( scene, camera );
+
 }
 animate();
