@@ -19,10 +19,15 @@ const icosphere = await (() => {
 
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
 const T_desert = new THREE.TextureLoader().load('/src/desert.png');
-const M_ocean = new THREE.MeshBasicMaterial({map: T_ocean})
+const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
+const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
 
-icosphere.children[79].material.map = T_desert;
-icosphere.children[5].material = M_ocean;
+icosphere.traverse(function(node){
+    if (node instanceof THREE.Mesh) {
+        node.material = M_ocean;
+    }
+});
+icosphere.children[5].material = M_desert;
 
 
 
@@ -62,7 +67,7 @@ function keypress_event(){
     //scene.add(cube);
     icosphere.traverse(function(node){
         if (node instanceof THREE.Mesh) {
-            node.material.map = T_desert;
+            node.material = M_desert;
         }
     });
 }
@@ -71,7 +76,7 @@ function keyup_event(){
     scene.remove(cube);
     icosphere.traverse(function(node){
         if (node instanceof THREE.Mesh) {
-            node.material.map = T_ocean;
+            node.material = M_ocean;
         }
     });
 }
