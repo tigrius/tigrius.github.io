@@ -10,25 +10,50 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 const gltfLoader = new GLTFLoader();
 const controls = new OrbitControls(camera, document.body);
 
-const icosphere = await (() => {
-    return new Promise((resolve) => {
-        gltfLoader.load('/src/ico.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
-    });
-})();
-
-
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
 const T_desert = new THREE.TextureLoader().load('/src/desert.png');
 
-icosphere.traverse(function(node){
+let icosphere = null;
+gltfLoader.load(
+    '/src/ico.glb',
+    function(gltf){
+        icosphere = gltf.scene;
+        icosphere.traverse(function(obj) {
+            if(obj instanceof THREE.Mesh){
+                console.log("There are Icosphere");
+                obj.material.map = T_ocean;
+            }
+        });
+        icosphere.name = "icosphere";
+        
+    },
+    function(error){
+        console.log(error);
+    }
+);
+
+console.log("cue");
+
+scene.add(icosphere);
+
+/*const icosphere = await (() => {
+    return new Promise((resolve) => {
+        gltfLoader.load('/src/ico.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
+    });
+})();*/
+
+
+
+
+/*icosphere.traverse(function(node){
     if (node instanceof THREE.Mesh) {
         node.material.map = T_ocean;
     }
-});
+});*/
 
 
 
-scene.add(icosphere);
+//scene.add(icosphere);
 
 
 
