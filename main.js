@@ -64,7 +64,20 @@ scene.add(pointlight2);
 scene.add(pointlight3);
 scene.add(ambientlight);
 
-
+window.addEventListener('click', (evt) => {
+    const raycaster = new THREE.Raycaster();
+    const vector = new THREE.Vector2(
+      (evt.clientX / window.innerWidth) * 2 - 1,
+      (evt.clientY / window.innerHeight) * -2 + 1
+    );
+  
+    raycaster.setFromCamera(vector, camera);
+  
+    const intersects = raycaster.intersectObjects(scene.children);
+    if (intersects.length > 0) {
+        intersects[0].object.material = M_desert;
+    }
+});
 
 function keypress_event(){
     //scene.add(cube);
