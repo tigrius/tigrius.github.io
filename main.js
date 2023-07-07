@@ -27,8 +27,18 @@ icosphere.traverse(function(node){
         node.material = M_ocean;
     }
 });
-icosphere.children[5].material = M_desert;
-
+icosphere.children[16].material = M_desert;
+icosphere.children[15].material = M_desert;
+icosphere.children[14].material = M_desert;
+icosphere.children[52].material = M_desert;
+icosphere.children[33].material = M_desert;
+icosphere.children[21].material = M_desert;
+icosphere.children[22].material = M_desert;
+icosphere.children[23].material = M_desert;
+icosphere.children[7].material = M_desert;
+icosphere.children[24].material = M_desert;
+icosphere.children[45].material = M_desert;
+icosphere.children[65].material = M_desert;
 
 
 
