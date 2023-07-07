@@ -39,6 +39,7 @@ icosphere.children[7].material = M_desert;
 icosphere.children[24].material = M_desert;
 icosphere.children[45].material = M_desert;
 icosphere.children[65].material = M_desert;
+icosphere.children[51].material = M_desert;
 
 
 
