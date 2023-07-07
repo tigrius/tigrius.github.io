@@ -75,7 +75,12 @@ window.addEventListener('click', (evt) => {
   
     const intersects = raycaster.intersectObjects(scene.children);
     if (intersects.length > 0) {
-        intersects[0].object.material = M_desert;
+        //intersects[0].object.material = M_desert;
+        if (intersects[0].object.material == M_desert){
+            intersects[0].object.material = M_ocean;
+        }else{
+            intersects[0].object.material = M_desert;
+        }
     }
 });
 
