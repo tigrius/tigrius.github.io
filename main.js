@@ -42,10 +42,10 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const pointlight = new THREE.PointLight(0xffffff,1,100);
-const pointlight2 = new THREE.PointLight(0xffffff,1,100);
-const pointlight3 = new THREE.PointLight(0xffffff,1,100);
-const ambientlight = new THREE.AmbientLight(0xffffff,1);
+const pointlight = new THREE.PointLight(0xffffff,1,80);
+const pointlight2 = new THREE.PointLight(0xffffff,1,80);
+const pointlight3 = new THREE.PointLight(0xffffff,1,80);
+const ambientlight = new THREE.AmbientLight(0xffffff,0.5);
 const geometry = new THREE.IcosahedronGeometry( 1, 0 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
