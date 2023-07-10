@@ -1,0 +1,29 @@
+
+function nextAreaL(trgl){
+    return [(trgl[0] -1)%(5* trgl[1]),trgl[1]];
+}
+
+function nextAreaR(trgl){
+    return [(trgl[0] +1)%(5* trgl[1]),trgl[1]];
+}
+
+function nextAreaC(trgl){
+    switch (Math.abs(trgl[0])){
+        case 4:
+            if (trgl[0] % 2 === 0){
+                return [trgl[0],-trgl[1]];
+            }
+            else{
+                return [(trgl[0] - Math.round((trgl[0]-1)/4) +1)%20, 3*trgl[1] /4];
+            }
+        case 3:
+            if (trgl[0] % 3 === 0){
+                return [trgl[0] /3, trgl[1] /3];
+            }
+            else{
+                return [(trgl[0] + Math.round(trgl[0]/3))%15, 4* trgl[1]/3];
+            }
+        case 1:
+            return [trgl[0] *3, trgl[1] *3];
+    }
+}
