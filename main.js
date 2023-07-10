@@ -105,9 +105,6 @@ function keyup_event(){
 
 function animate() {
 	requestAnimationFrame( animate );
-    cube.rotation.z += 0.0;
-    cube.rotation.y += 0.0;
 	renderer.render( scene, camera );
-
 }
 animate();
