@@ -14,7 +14,7 @@ function nextAreaC(trgl){
                 return [trgl[0],-trgl[1]];
             }
             else{
-                return [(trgl[0] - Math.round((trgl[0]-1)/4) +1)%15, 3*trgl[1] /4];
+                return [(trgl[0] - Math.round((trgl[0]-1)/4))%15, 3*trgl[1] /4];
             }
         case 3:
             if (trgl[0] % 3 == 0){
