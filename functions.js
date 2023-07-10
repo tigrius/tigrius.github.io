@@ -27,3 +27,7 @@ function nextAreaC(trgl){
             return [trgl[0] *3, trgl[1] *3];
     }
 }
+
+function nextAreas(trgl){
+    return [nextAreaL(trgl),nextAreaR(trgl),nextAreaC(trgl)];
+}
