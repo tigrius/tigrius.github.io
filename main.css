@@ -1,4 +1,6 @@
-body{margin:0px}
+body{margin:0px;
+    user-select: none;
+}
 
 #info{
     position:absolute;
