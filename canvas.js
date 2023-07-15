@@ -13,19 +13,18 @@ export function createCanvasMaterial(imgsrc = "/src/ocean.png"){
     
     img.onload = function(){
         ctx.drawImage(img, 0, 0, 256, 256);
-        let texture = new THREE.CanvasTexture(ctx.canvas);
-        texture.needsUpdate = true;
-
-        texture.minFilter = THREE.LinearFilter;
-        texture.magFilter = THREE.LinearFilter;
-        texture.format = THREE.RGBAFormat;
-
-        let material = new THREE.MeshStandardMaterial({map: texture});
-    
-    return material;
     }
 
-    //document.body.appendChild(ctx.canvas);
+    document.body.appendChild(ctx.canvas);
 
+    let texture = new THREE.CanvasTexture(ctx.canvas);
+    texture.needsUpdate = true;
+
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.format = THREE.RGBAFormat;
+
+    let material = new THREE.MeshStandardMaterial({map: texture});
     
+    return material;
 }
