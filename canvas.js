@@ -25,7 +25,7 @@ export function createCanvasMaterial(imgsrc = "/src/ocean.png"){
     return material;
     }
 
-    document.body.appendChild(ctx.canvas);
+    //document.body.appendChild(ctx.canvas);
 
     
 }
