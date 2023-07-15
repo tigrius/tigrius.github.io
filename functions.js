@@ -50,7 +50,7 @@ function nextAreaC(trgl){
     }
 }
 
-function nextAreas(trgl){
+export function nextAreas(trgl){
     return [nextAreaL(trgl),nextAreaR(trgl),nextAreaC(trgl)];
 }
 
