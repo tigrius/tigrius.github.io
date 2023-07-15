@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { createCanvasMaterial } from './canvas.js';
 
 document.addEventListener('keypress', keypress_event);
 document.addEventListener('keyup', keyup_event);
@@ -30,7 +31,7 @@ icosphere.traverse(function(node){
 
 const continentdata = [16,15,14,52,33,21,22,23,7,24,45,65,51];
 continentdata.forEach(function(num){
-    icosphere.children[num].material = M_desert;
+    icosphere.children[num].material = createCanvasMaterial();
 });
 
 
