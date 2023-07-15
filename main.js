@@ -23,18 +23,35 @@ const T_desert = new THREE.TextureLoader().load('/src/desert.png');
 const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
 const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
 
+const canvas = document.createElement('canvas');
+canvas.width = 256;
+canvas.height = 256;
+
+const ctx = canvas.getContext('2d');
+
+const img = new Image();
+img.src = '/src/desert.png';
+img.onload = function(){
+    ctx.drawImage(img, 0, 0, 256, 256);
+    const canvastexture = new THREE.CanvasTexture(canvas);
+    const canvasmaterial = new THREE.MeshStandardMaterial({map: canvastexture});
+    icosphere.children[0].material = canvasmaterial;
+}
+
+
 icosphere.traverse(function(node){
     if (node instanceof THREE.Mesh) {
         node.material = M_ocean;
     }
 });
 
-icosphere.children[1].material = createCanvasMaterial('/src/desert.png');
+
+//icosphere.children[1].material = createCanvasMaterial('/src/desert.png');
 
 const continentdata = [16,15,14,52,33,21,22,23,7,24,45,65,51];
-continentdata.forEach(function(num){
+/*continentdata.forEach(function(num){
     icosphere.children[num].material = createCanvasMaterial('/src/desert.png');
-});
+});*/
 
 
 
