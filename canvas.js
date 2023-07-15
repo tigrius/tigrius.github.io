@@ -24,7 +24,7 @@ export function createCanvasMaterial(imgsrc = "/src/ocean.png"){
     texture.magFilter = THREE.LinearFilter;
     texture.format = THREE.RGBAFormat;
 
-    let material = new THREE.MeshStandardMaterial({map: texture});
+    let material = new THREE.MeshStandardMaterial({map: texture, color: 0xffffff});
     
     return material;
 }
