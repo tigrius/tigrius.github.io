@@ -29,6 +29,8 @@ icosphere.traverse(function(node){
     }
 });
 
+icosphere.children[1].material = createCanvasMaterial('/src/desert.png');
+
 const continentdata = [16,15,14,52,33,21,22,23,7,24,45,65,51];
 continentdata.forEach(function(num){
     icosphere.children[num].material = createCanvasMaterial('/src/desert.png');
