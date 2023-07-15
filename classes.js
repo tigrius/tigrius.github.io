@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { nextAreas } from "./functions.js";
 
 var canvasSize = 256;
@@ -14,14 +15,18 @@ export class area {
     constructor(x,y,object, isSea){
         this.address = [x,y];
         this.object = object
-        this.plant = none;
-        this.animal = none;
+        this.plant = null;
+        this.animal = null;
         this.isSea = isSea;
 
         this.canvas = document.createElement('canvas');
         this.canvas.width = canvasSize;
         this.canvas.height = canvasSize;
         this.ctx = this.canvas.getContext('2d');
+        document.body.appendChild(canvas);
+        const texture = new THREE.CanvasTexture(canvas);
+        const material = new THREE.MeshStandardMaterial({map: texture});
+        this.object.material = material;
     }
     get getAdress(){
         return this.address;
@@ -32,7 +37,7 @@ export class area {
     get getAnimal(){
         return this.animal;
     }
-    get isSea(){
+    isSea(){
         return this.isSea;
     }
     set setPlant(plant){

@@ -6,7 +6,7 @@ import { createCanvasMaterial } from './canvas.js';
 document.addEventListener('keypress', keypress_event);
 document.addEventListener('keyup', keyup_event);
 
-const scene = new THREE.Scene();
+export const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const gltfLoader = new GLTFLoader();
 const controls = new OrbitControls(camera, document.body);
@@ -55,7 +55,7 @@ const continentdata = [16,15,14,52,33,21,22,23,7,24,45,65,51];
 
 
 
-scene.add(icosphere);
+
 
 
 const renderer = new THREE.WebGLRenderer();
@@ -106,7 +106,7 @@ window.addEventListener('click', (evt) => {
 
 function keypress_event(){
     //scene.add(cube);
-    icosphere.traverse(function(node){
+    scene.traverse(function(node){
         if (node instanceof THREE.Mesh) {
             node.material = M_desert;
         }
@@ -114,8 +114,7 @@ function keypress_event(){
 }
 
 function keyup_event(){
-    scene.remove(cube);
-    icosphere.traverse(function(node){
+    scene.traverse(function(node){
         if (node instanceof THREE.Mesh) {
             node.material = M_ocean;
         }
