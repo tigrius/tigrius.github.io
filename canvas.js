@@ -1,16 +1,30 @@
 import * as THREE from 'three';
 
-export function createCanvasMaterial(){
+export function createCanvasMaterial(imgsrc = "/src/ocean.png"){
     const canvas = document.createElement('canvas');
 
-    const texture = new THREE.CanvasTexture(canvas);
+    canvas.width = 256;
+    canvas.height = 256;
+
+    const ctx = canvas.getContext('2d');
+
+    const img = new Image();
+    img.src = imgsrc;
+    
+    img.onload = function(){
+        ctx.drawImage(img, 0, 0, 256, 256);
+    }
+
+    document.body.appendChild(ctx.canvas);
+
+    let texture = new THREE.CanvasTexture(ctx.canvas);
     texture.needsUpdate = true;
 
-    /*texture.minFilter = THREE.LinearFilter;
+    texture.minFilter = THREE.LinearFilter;
     texture.magFilter = THREE.LinearFilter;
-    texture.format = THREE.RGBAFormat;*/
+    texture.format = THREE.RGBAFormat;
 
-    const material = new THREE.MeshStandardMaterial({map: texture});
-
+    let material = new THREE.MeshStandardMaterial({map: texture});
+    
     return material;
 }
