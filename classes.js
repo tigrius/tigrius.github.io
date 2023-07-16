@@ -14,19 +14,23 @@ const 大気組成 = {
 export class area {
     constructor(x,y,object, isSea){
         this.address = [x,y];
-        this.object = object
+        this.object = object;
         this.plant = null;
         this.animal = null;
         this.isSea = isSea;
 
-        this.canvas = document.createElement('canvas');
-        this.canvas.width = canvasSize;
-        this.canvas.height = canvasSize;
-        this.ctx = this.canvas.getContext('2d');
+        const canvas = document.createElement('canvas');
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        const ctx = canvas.getContext('2d');
         document.body.appendChild(canvas);
+
         const texture = new THREE.CanvasTexture(canvas);
         const material = new THREE.MeshStandardMaterial({map: texture});
-        this.object.material = material;
+        object.material = material;
+
+        this.canvas = canvas;
+        this.ctx = ctx;
     }
     get getAdress(){
         return this.address;
@@ -48,5 +52,8 @@ export class area {
     }
     getNextAreas(){
         return nextAreas(this.address);
+    }
+    getObject(){
+        return this.object;
     }
 }
