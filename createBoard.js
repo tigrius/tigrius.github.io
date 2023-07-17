@@ -32,10 +32,10 @@ for (let i=0;i<20;i++){
     areas4[i] = new Area(4,i,icosphere.children[i + 40], true);
 }
 for (let i=0;i<15;i++){
-    areas5[i] = new Area(2,i,icosphere.children[i + 60],true);
+    areas5[i] = new Area(5,i,icosphere.children[i + 60],true);
 }
 for (let i=0;i < 5; i++){
-    areas6[i] = new Area(1,i,icosphere.children[i + 75],true);
+    areas6[i] = new Area(6,i,icosphere.children[i + 75],true);
 }
 areas.push(areas1);
 areas.push(areas2);
