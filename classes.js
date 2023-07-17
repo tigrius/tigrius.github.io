@@ -11,7 +11,7 @@ const 大気組成 = {
     incO2 : function(num){this.O2 += num;},
 }
 
-export class area {
+export class Area {
     constructor(x,y,object, isSea){
         this.address = [x,y];
         this.object = object
@@ -27,6 +27,7 @@ export class area {
         const texture = new THREE.CanvasTexture(canvas);
         const material = new THREE.MeshStandardMaterial({map: texture});
         this.object.material = material;
+        console.log("conducted");
     }
     get getAdress(){
         return this.address;
