@@ -18,6 +18,7 @@ export class Area {
         this.plant = null;
         this.animal = null;
         this.isSea = isSea;
+        this.isSelected = false;
 
         object.name = x + "," + y;
 
@@ -87,6 +88,77 @@ export class Area {
         this.ctx.closePath();
         //drawTriag(ctx);
         this.ctx.stroke();
-        this.object.material.needsUpdate = true;
+        this.refresh();
+    }
+    refresh(){
+        this.object.material.map.needsUpdate = true;
+    }
+    imgEdge(){
+        if (this.isSelected){
+            const canvas = document.createElement('canvas');
+            canvas.width = canvasSize;
+            canvas.height = canvasSize;
+            const ctx = canvas.getContext('2d');
+            ctx.strokeStyle = '#ff0000';
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.moveTo(0.5* canvasSize,canvasSize);
+            ctx.lineTo(canvasSize,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.lineTo(0,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.closePath();
+            ctx.stroke();
+            const url = canvas.toDataURL();
+            const img = new Image();
+            img.src = url;
+            return img;
+        }
+        else{
+            return null;
+        }
+    }
+    imgPlate(){
+        const img = new Image();
+        if(this.isSea){ 
+            img.src = '/src/ocean.png'; 
+        }else{
+            img.src = '/src/desert.png';
+        }
+        return img;
+    }
+    imgPlant(){
+        return null;
+    }
+    imgAnimal(){
+        return null;
+    }
+    depict(){
+        new Promise((resolve, reject) => {
+            resolve(this.imgPlate());
+        })
+            .then((data) => {
+                this.ctx.drawImage(data,0,0,canvasSize,canvasSize);
+                return new Promise((resolve, reject) => resolve(this.imgPlant()))
+            })
+            .then((data) => {
+                try{this.ctx.drawImage(data,0,0,canvasSize,canvasSize);}catch{}
+                return new Promise((resolve, reject) => resolve(this.imgAnimal()))
+            })
+            .then((data) => {
+                try{this.ctx.drawImage(data,0,0,canvasSize,canvasSize);}catch{}
+                return new Promise((resolve, reject) => resolve(this.imgEdge()))
+            })
+            .then((data) => {
+                try{this.ctx.drawImage(data,0,0,canvasSize,canvasSize);}catch{}
+            })
+
+        this.refresh();
+    }
+    select(){
+        this.isSelected = true;
+        this.depict();
+    }
+    unselect(){
+        this.isSelected = false;
+        this.depict();
     }
 }

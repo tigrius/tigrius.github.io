@@ -61,3 +61,12 @@ export function drawTriag(ctx,size){
     ctx.lineTo(0,size * Math.sqrt(3)/2);
     ctx.closePath();
 }
+
+export function binaryRandom(per){
+    if (Math.random() >= per){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

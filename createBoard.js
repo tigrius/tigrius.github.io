@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import { Area } from "./classes.js";
 import { scene } from './main.js';
+import { binaryRandom } from './functions.js';
 
 const gltfLoader = new GLTFLoader();
 const icosphere = await (() => {
@@ -20,22 +21,22 @@ let areas3 = new Array(20);
 let areas4 = new Array(20);
 
 for (let i=0;i < 5; i++){
-    areas1[i] = new Area(0,i,icosphere.children[i],true);
+    areas1[i] = new Area(0,i,icosphere.children[i],binaryRandom(0.3));
 }
 for (let i=0;i<15;i++){
-    areas2[i] = new Area(1,i,icosphere.children[i + 5],true);
+    areas2[i] = new Area(1,i,icosphere.children[i + 5],binaryRandom(0.3));
 }
 for (let i=0;i<20;i++){
-    areas3[i] = new Area(2,i,icosphere.children[i + 20],false);
+    areas3[i] = new Area(2,i,icosphere.children[i + 20],binaryRandom(0.3));
 }
 for (let i=0;i<20;i++){
-    areas4[i] = new Area(3,i,icosphere.children[i + 40], true);
+    areas4[i] = new Area(3,i,icosphere.children[i + 40], binaryRandom(0.3));
 }
 for (let i=0;i<15;i++){
-    areas5[i] = new Area(4,i,icosphere.children[i + 60],true);
+    areas5[i] = new Area(4,i,icosphere.children[i + 60],binaryRandom(0.3));
 }
 for (let i=0;i < 5; i++){
-    areas6[i] = new Area(5,i,icosphere.children[i + 75],true);
+    areas6[i] = new Area(5,i,icosphere.children[i + 75],binaryRandom(0.3));
 }
 areas.push(areas1);
 areas.push(areas2);
