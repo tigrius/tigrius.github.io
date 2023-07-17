@@ -6,7 +6,7 @@ import { scene } from './main.js';
 const gltfLoader = new GLTFLoader();
 const icosphere = await (() => {
     return new Promise((resolve) => {
-        gltfLoader.load('/src/ico.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
+        gltfLoader.load('/src/icosphere.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
     });
 })();
 

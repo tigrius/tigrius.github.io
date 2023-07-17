@@ -14,6 +14,8 @@ const T_desert = new THREE.TextureLoader().load('/src/desert.png');
 const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
 const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
 
+
+
 /*icosphere.traverse(function(node){
     if (node instanceof THREE.Mesh) {
         node.material = M_ocean;
