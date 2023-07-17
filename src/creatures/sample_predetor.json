@@ -1,0 +1,10 @@
+{
+    "name":"sample_predetor",
+    "type":"C",
+    "CP":5,
+    "PL":2,
+    "HP":3,
+    "EP":3,
+    "LE":[1],
+    "src":"../texture/sample_predetor.png"
+}
