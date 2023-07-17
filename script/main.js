@@ -8,10 +8,6 @@ export const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / windo
 
 const controls = new OrbitControls(camera, document.body);
 
-const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
-const T_desert = new THREE.TextureLoader().load('/src/desert.png');
-const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
-const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
 
 
 

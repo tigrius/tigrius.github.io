@@ -29,9 +29,9 @@ export class Area {
         const img = new Image();
         
         if(isSea){ 
-            img.src = '/src/ocean.png'; 
+            img.src = '/src/texture/ocean.png'; 
         }else{
-            img.src = '/src/desert.png';
+            img.src = '/src/texture/desert.png';
         }
 
         img.onload = function(){
@@ -119,9 +119,9 @@ export class Area {
     imgPlate(){
         const img = new Image();
         if(this.isSea){ 
-            img.src = '/src/ocean.png'; 
+            img.src = '/src/texture/ocean.png'; 
         }else{
-            img.src = '/src/desert.png';
+            img.src = '/src/texture/desert.png';
         }
         return img;
     }

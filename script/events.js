@@ -5,11 +5,6 @@ import {areas} from './createBoard.js';
 document.addEventListener('keypress', keypress_event);
 document.addEventListener('keyup', keyup_event);
 
-const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
-const T_desert = new THREE.TextureLoader().load('/src/desert.png');
-const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
-const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
-
 let selectedArea = null;
 let visibleTextureSample = false;
 

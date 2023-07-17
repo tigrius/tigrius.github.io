@@ -7,7 +7,7 @@ import { binaryRandom } from './functions.js';
 const gltfLoader = new GLTFLoader();
 const icosphere = await (() => {
     return new Promise((resolve) => {
-        gltfLoader.load('/src/icosphere.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
+        gltfLoader.load('/src/model/icosphere.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
     });
 })();
 
