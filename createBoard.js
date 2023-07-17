@@ -15,7 +15,8 @@ export let areas = new Array();
 let areas1,areas6 = new Array(5);
 let areas2,areas5 = new Array(15);
 let areas3,areas4 = new Array(20);
-icosphere.onload = function(){
+icosphere.addEventListener('load', function(){
+    console.log("icosphereloaded");
     for (let i=0;i < 5; i++){
         areas1[i] = new Area(1,i,icosphere.children[i],true);
     }
@@ -40,7 +41,7 @@ icosphere.onload = function(){
     areas.push(areas4);
     areas.push(areas5);
     areas.push(areas6);
-}
+});
 
 
 

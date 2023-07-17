@@ -11,11 +11,11 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 const gltfLoader = new GLTFLoader();
 const controls = new OrbitControls(camera, document.body);
 
-const icosphere = await (() => {
+/*const icosphere = await (() => {
     return new Promise((resolve) => {
         gltfLoader.load('/src/ico.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
     });
-})();
+})();*/
 
 
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
@@ -27,7 +27,7 @@ const canvas = document.createElement('canvas');
 canvas.width = 256;
 canvas.height = 256;
 
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');1
 
 const img = new Image();
 img.src = '/src/desert.png';
@@ -39,11 +39,11 @@ img.onload = function(){
 }
 
 
-icosphere.traverse(function(node){
+/*icosphere.traverse(function(node){
     if (node instanceof THREE.Mesh) {
         node.material = M_ocean;
     }
-});
+});*/
 
 
 //icosphere.children[1].material = createCanvasMaterial('/src/desert.png');
