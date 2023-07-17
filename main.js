@@ -1,11 +1,10 @@
 import * as THREE from 'three';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-document.addEventListener('keypress', keypress_event);
-document.addEventListener('keyup', keyup_event);
+
 
 export const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+export const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 const controls = new OrbitControls(camera, document.body);
 
@@ -48,43 +47,9 @@ scene.add(pointlight2);
 scene.add(pointlight3);
 scene.add(ambientlight);
 
-window.addEventListener('click', (evt) => {
-    const raycaster = new THREE.Raycaster();
-    const vector = new THREE.Vector2(
-      (evt.clientX / window.innerWidth) * 2 - 1,
-      (evt.clientY / window.innerHeight) * -2 + 1
-    );
-  
-    raycaster.setFromCamera(vector, camera);
-  
-    const intersects = raycaster.intersectObjects(scene.children);
-    if (intersects.length > 0) {
-        //intersects[0].object.material = M_desert;
-        console.log(intersects[0].object.name);
-        if (intersects[0].object.material == M_desert){
-            intersects[0].object.material = M_ocean;
-        }else{
-            intersects[0].object.material = M_desert;
-        }
-    }
-});
 
-function keypress_event(){
-    //scene.add(cube);
-    scene.traverse(function(node){
-        if (node instanceof THREE.Mesh) {
-            node.material = M_desert;
-        }
-    });
-}
 
-function keyup_event(){
-    scene.traverse(function(node){
-        if (node instanceof THREE.Mesh) {
-            node.material = M_ocean;
-        }
-    });
-}
+
 
 
 function animate() {

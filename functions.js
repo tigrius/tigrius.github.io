@@ -54,3 +54,10 @@ export function nextAreas(trgl){
     return [nextAreaL(trgl),nextAreaR(trgl),nextAreaC(trgl)];
 }
 
+export function drawTriag(ctx,size){
+    ctx.beginPath();
+    ctx.moveTo(0.5* size,0);
+    ctx.lineTo(size,size * Math.sqrt(3)/2);
+    ctx.lineTo(0,size * Math.sqrt(3)/2);
+    ctx.closePath();
+}

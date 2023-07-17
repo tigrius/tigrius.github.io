@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { nextAreas } from "./functions.js";
+import { nextAreas,drawTriag } from "./functions.js";
 
 var canvasSize = 256;
 
@@ -40,7 +40,14 @@ export class Area {
             object.material = material;
         }
 
-        
+        ctx.strokeStyle = '#ff0000';
+        ctx.beginPath();
+        ctx.moveTo(0.5* canvasSize,0);
+        ctx.lineTo(canvasSize,canvasSize * Math.sqrt(3)/2);
+        ctx.lineTo(0,canvasSize * Math.sqrt(3)/2);
+        ctx.closePath();
+        //drawTriag(ctx);
+        ctx.stroke();
 
         this.canvas = canvas;
         this.ctx = ctx;
@@ -68,5 +75,12 @@ export class Area {
     }
     getObject(){
         return this.object;
+    }
+    showTexture(){
+        try {document.getElementById('texture').children[0].remove();}catch{}
+        
+        document.getElementById('texture').appendChild(this.canvas);
+        this.canvas.style.width = "70%";
+        this.canvas.style.width = "70%";
     }
 }
