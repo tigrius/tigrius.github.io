@@ -1,62 +1,24 @@
 import * as THREE from 'three';
-import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { createCanvasMaterial } from './canvas.js';
 
 document.addEventListener('keypress', keypress_event);
 document.addEventListener('keyup', keyup_event);
 
 export const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-const gltfLoader = new GLTFLoader();
+
 const controls = new OrbitControls(camera, document.body);
-
-/*const icosphere = await (() => {
-    return new Promise((resolve) => {
-        gltfLoader.load('/src/ico.glb', (gltf) => {resolve(gltf.scene);}, (err) => {console.error(err);});
-    });
-})();*/
-
 
 const T_ocean = new THREE.TextureLoader().load('/src/ocean.png');
 const T_desert = new THREE.TextureLoader().load('/src/desert.png');
 const M_ocean = new THREE.MeshStandardMaterial({map: T_ocean});
 const M_desert = new THREE.MeshStandardMaterial({map: T_desert});
 
-const canvas = document.createElement('canvas');
-canvas.width = 256;
-canvas.height = 256;
-
-const ctx = canvas.getContext('2d');1
-
-const img = new Image();
-img.src = '/src/desert.png';
-img.onload = function(){
-    ctx.drawImage(img, 0, 0, 256, 256);
-    const canvastexture = new THREE.CanvasTexture(canvas);
-    const canvasmaterial = new THREE.MeshStandardMaterial({map: canvastexture});
-    scene.children[0].material = canvasmaterial;
-}
-
-
 /*icosphere.traverse(function(node){
     if (node instanceof THREE.Mesh) {
         node.material = M_ocean;
     }
 });*/
-
-
-//icosphere.children[1].material = createCanvasMaterial('/src/desert.png');
-
-const continentdata = [16,15,14,52,33,21,22,23,7,24,45,65,51];
-/*continentdata.forEach(function(num){
-    icosphere.children[num].material = createCanvasMaterial('/src/desert.png');
-});*/
-
-
-
-
-
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -96,6 +58,7 @@ window.addEventListener('click', (evt) => {
     const intersects = raycaster.intersectObjects(scene.children);
     if (intersects.length > 0) {
         //intersects[0].object.material = M_desert;
+        console.log(intersects[0].object.name);
         if (intersects[0].object.material == M_desert){
             intersects[0].object.material = M_ocean;
         }else{

@@ -19,6 +19,8 @@ export class Area {
         this.animal = null;
         this.isSea = isSea;
 
+        object.name = x + "," + y;
+
         const canvas = document.createElement('canvas');
         canvas.width = canvasSize;
         canvas.height = canvasSize;
