@@ -19,22 +19,29 @@ export class Area {
         this.animal = null;
         this.isSea = isSea;
 
-        console.log("set");
-
         const canvas = document.createElement('canvas');
         canvas.width = canvasSize;
         canvas.height = canvasSize;
         const ctx = canvas.getContext('2d');
-        document.body.appendChild(canvas);
+        const img = new Image();
+        
+        if(isSea){ 
+            img.src = '/src/ocean.png'; 
+        }else{
+            img.src = '/src/desert.png';
+        }
 
-        const texture = new THREE.CanvasTexture(canvas);
-        const material = new THREE.MeshStandardMaterial({map: texture});
-        object.material = material;
+        img.onload = function(){
+            ctx.drawImage(img, 0, 0, 256, 256);
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.MeshStandardMaterial({map: texture});
+            object.material = material;
+        }
+
+        
 
         this.canvas = canvas;
         this.ctx = ctx;
-
-        
     }
     get getAdress(){
         return this.address;

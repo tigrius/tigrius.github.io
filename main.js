@@ -35,7 +35,7 @@ img.onload = function(){
     ctx.drawImage(img, 0, 0, 256, 256);
     const canvastexture = new THREE.CanvasTexture(canvas);
     const canvasmaterial = new THREE.MeshStandardMaterial({map: canvastexture});
-    icosphere.children[0].material = canvasmaterial;
+    scene.children[0].material = canvasmaterial;
 }
 
 
