@@ -1,6 +1,7 @@
 {
     "name":"sample_predetor",
     "type":"C",
+    "race":"sample_animal",
     "CP":5,
     "PL":2,
     "HP":3,

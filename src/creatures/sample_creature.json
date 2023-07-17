@@ -1,6 +1,7 @@
 {
     "name":"sample_plant",
     "type":"P",
+    "race":"sample_plants",
     "CP":5,
     "PP":5,
     "src":"../texture/sample_plant.png"
