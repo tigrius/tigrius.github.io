@@ -26,6 +26,7 @@ window.addEventListener('click', (evt) => {
         const address = intersects[0].object.name.split(',');
         console.log(address);
         areas[address[0]][address[1]].showTexture();
+        areas[address[0]][address[1]].emitEdge();
     }
     else{
         try {document.getElementById('texture').children[0].remove();}catch{}

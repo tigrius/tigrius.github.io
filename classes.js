@@ -38,16 +38,10 @@ export class Area {
             const texture = new THREE.CanvasTexture(canvas);
             const material = new THREE.MeshStandardMaterial({map: texture});
             object.material = material;
+
         }
 
-        ctx.strokeStyle = '#ff0000';
-        ctx.beginPath();
-        ctx.moveTo(0.5* canvasSize,0);
-        ctx.lineTo(canvasSize,canvasSize * Math.sqrt(3)/2);
-        ctx.lineTo(0,canvasSize * Math.sqrt(3)/2);
-        ctx.closePath();
-        //drawTriag(ctx);
-        ctx.stroke();
+        
 
         this.canvas = canvas;
         this.ctx = ctx;
@@ -82,5 +76,17 @@ export class Area {
         document.getElementById('texture').appendChild(this.canvas);
         this.canvas.style.width = "70%";
         this.canvas.style.width = "70%";
+    }
+    emitEdge(){
+        this.ctx.strokeStyle = '#ff0000';
+        this.ctx.lineWidth = 5;
+        this.ctx.beginPath();
+        this.ctx.moveTo(0.5* canvasSize,canvasSize);
+        this.ctx.lineTo(canvasSize,canvasSize * (1-Math.sqrt(3)/2));
+        this.ctx.lineTo(0,canvasSize * (1-Math.sqrt(3)/2));
+        this.ctx.closePath();
+        //drawTriag(ctx);
+        this.ctx.stroke();
+        this.object.material.needsUpdate = true;
     }
 }
