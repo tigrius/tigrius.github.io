@@ -7,5 +7,6 @@
     "HP":3,
     "EP":3,
     "LE":[1],
+    "habitation":"sea",
     "src":"../texture/sample_predetor.png"
 }
