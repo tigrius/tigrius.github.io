@@ -40,15 +40,33 @@ window.addEventListener('click', (evt) => {
     }
 });
 
-function keypress_event(){
-    if(visibleTextureSample){
-        visibleTextureSample = false;
-        try {document.getElementById('texture').children[0].remove();}catch{}
+function keypress_event(e){
+    switch (e.code){
+        case 'KeyT':
+            if(visibleTextureSample){
+                visibleTextureSample = false;
+                try {document.getElementById('texture').children[0].remove();}catch{}
+            }
+            else{
+                visibleTextureSample = true;
+                try{selectedArea.showTexture();}catch{}
+            }
+        case 'KeyU':
+            if (selectedArea != null){
+                let requestURL = '../src/creatures/sample_creature.json';
+                let request = new XMLHttpRequest();
+                request.open('GET', requestURL);
+                request.responseType = 'json';
+                request.send();
+                request.onload = function (){
+                    let data = request.response;
+                    data = JSON.parse(JSON.stringify(data));
+                    selectedArea.setAnimal(data);
+                    selectedArea.depict();
+                }
+            }
     }
-    else{
-        visibleTextureSample = true;
-        try{selectedArea.showTexture();}catch{}
-    }
+    
     
     //scene.add(cube);
     /*scene.traverse(function(node){

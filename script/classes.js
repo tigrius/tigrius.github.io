@@ -49,22 +49,22 @@ export class Area {
 
         this.depict();
     }
-    get getAdress(){
+    getAdress(){
         return this.address;
     }
-    get getPlant(){
+    getPlant(){
         return this.plant;
     }
-    get getAnimal(){
+    getAnimal(){
         return this.animal;
     }
     isSea(){
         return this.isSea;
     }
-    set setPlant(plant){
+    setPlant(plant){
         this.plant = plant;
     }
-    set setAnimal(animal){
+    setAnimal(animal){
         this.animal = animal;
     }
     getNextAreas(){
@@ -143,10 +143,24 @@ export class Area {
         return img;
     }
     imgPlant(){
-        return null;
+        if (this.plant == null){
+            return null;
+        }
+        else{
+            const img = new Image();
+            img.src = this.plant.src;
+            return img;
+        }
     }
     imgAnimal(){
-        return null;
+        if (this.animal == null){
+            return null;
+        }
+        else{
+            const img = new Image();
+            img.src = this.animal.src;
+            return img;
+        }
     }
     depict(){
         new Promise((resolve, reject) => {
