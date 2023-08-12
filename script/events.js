@@ -51,19 +51,22 @@ function keypress_event(e){
                 visibleTextureSample = true;
                 try{selectedArea.showTexture();}catch{}
             }
-        case 'KeyU':
+        case 'KeyW':
             if (selectedArea != null){
-                let requestURL = '../src/creatures/sample_creature.json';
-                let request = new XMLHttpRequest();
-                request.open('GET', requestURL);
-                request.responseType = 'json';
-                request.send();
-                request.onload = function (){
-                    let data = request.response;
-                    data = JSON.parse(JSON.stringify(data));
-                    selectedArea.setAnimal(data);
-                    selectedArea.depict();
+                if (! selectedArea.isSea ){
+                    let requestURL = '../src/creatures/sample_creature.json';
+                    let request = new XMLHttpRequest();
+                    request.open('GET', requestURL);
+                    request.responseType = 'json';
+                    request.send();
+                    request.onload = function (){
+                        let data = request.response;
+                        data = JSON.parse(JSON.stringify(data));
+                        selectedArea.setPlant(data);
+                        selectedArea.depict();
                 }
+                }
+                
             }
     }
     
