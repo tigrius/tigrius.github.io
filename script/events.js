@@ -51,6 +51,7 @@ function keypress_event(e){
                 visibleTextureSample = true;
                 try{selectedArea.showTexture();}catch{}
             }
+            break;
         case 'KeyW':
             if (selectedArea != null){
                 if (! selectedArea.isSea ){
@@ -66,8 +67,25 @@ function keypress_event(e){
                         selectedArea.depict();
                 }
                 }
-                
             }
+            break;
+        case 'KeyA':
+            if (selectedArea != null){
+                if (! selectedArea.isSea ){
+                    let requestURL = '../src/creatures/sample_predetor.json';
+                    let request = new XMLHttpRequest();
+                    request.open('GET', requestURL);
+                    request.responseType = 'json';
+                    request.send();
+                    request.onload = function (){
+                        let data = request.response;
+                        data = JSON.parse(JSON.stringify(data));
+                        selectedArea.setAnimal(data);
+                        selectedArea.depict();
+                }
+                }
+            }
+            break
     }
     
     
