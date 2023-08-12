@@ -45,6 +45,10 @@ areas.push(areas4);
 areas.push(areas5);
 areas.push(areas6);
 
-
+for (let i of areas){
+    for (let j of i){
+        j.depict();
+    }
+}
 
 scene.add(icosphere);

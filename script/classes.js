@@ -46,6 +46,8 @@ export class Area {
 
         this.canvas = canvas;
         this.ctx = ctx;
+
+        this.depict();
     }
     get getAdress(){
         return this.address;
@@ -113,7 +115,22 @@ export class Area {
             return img;
         }
         else{
-            return null;
+            const canvas = document.createElement('canvas');
+            canvas.width = canvasSize;
+            canvas.height = canvasSize;
+            const ctx = canvas.getContext('2d');
+            ctx.strokeStyle = '#cccccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0.5* canvasSize,canvasSize);
+            ctx.lineTo(canvasSize,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.lineTo(0,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.closePath();
+            ctx.stroke();
+            const url = canvas.toDataURL();
+            const img = new Image();
+            img.src = url;
+            return img;
         }
     }
     imgPlate(){
