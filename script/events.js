@@ -85,16 +85,20 @@ function keypress_event(e){
                 }
                 }
             }
-            break
+            break;
+        case 'KeyS':
+            try{
+                selectedArea.isSea = true;
+                selectedArea.depict();
+            }catch{}
+            break;
+        case 'KeyD':
+            try{
+                selectedArea.isSea = false;
+                selectedArea.depict();
+            }catch{}
+            break;
     }
-    
-    
-    //scene.add(cube);
-    /*scene.traverse(function(node){
-        if (node instanceof THREE.Mesh) {
-            node.material = M_desert;
-        }
-    });*/
 }
 
 function keyup_event(){
