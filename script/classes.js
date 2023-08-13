@@ -104,9 +104,9 @@ export class Area {
             ctx.strokeStyle = '#ff0000';
             ctx.lineWidth = 5;
             ctx.beginPath();
-            ctx.moveTo(0.5* canvasSize,canvasSize);
-            ctx.lineTo(canvasSize,canvasSize * (1-Math.sqrt(3)/2));
-            ctx.lineTo(0,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.moveTo(0.5* canvasSize,0);
+            ctx.lineTo(canvasSize,canvasSize * (Math.sqrt(3)/2));
+            ctx.lineTo(0,canvasSize * (Math.sqrt(3)/2));
             ctx.closePath();
             ctx.stroke();
             const url = canvas.toDataURL();
@@ -122,9 +122,9 @@ export class Area {
             ctx.strokeStyle = '#cccccc';
             ctx.lineWidth = 1;
             ctx.beginPath();
-            ctx.moveTo(0.5* canvasSize,canvasSize);
-            ctx.lineTo(canvasSize,canvasSize * (1-Math.sqrt(3)/2));
-            ctx.lineTo(0,canvasSize * (1-Math.sqrt(3)/2));
+            ctx.moveTo(0.5* canvasSize,0);
+            ctx.lineTo(canvasSize,canvasSize * (Math.sqrt(3)/2));
+            ctx.lineTo(0,canvasSize * (Math.sqrt(3)/2));
             ctx.closePath();
             ctx.stroke();
             const url = canvas.toDataURL();
