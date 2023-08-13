@@ -43,7 +43,8 @@ scene.add(pointlight2);
 scene.add(pointlight3);
 scene.add(ambientlight);
 
-
+let n_players = 3;
+let points = new Array(n_players);
 
 
 
