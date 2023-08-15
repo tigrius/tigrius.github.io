@@ -4,9 +4,9 @@
     "race":"sample_animal",
     "CP":5,
     "PL":2,
-    "HP":3,
+    "HP":5,
     "EP":3,
     "LE":[1],
     "habitation":"sea",
-    "src":"../src/texture/sample_predetor.png"
+    "src":"../src/texture/samplezebra.png"
 }
