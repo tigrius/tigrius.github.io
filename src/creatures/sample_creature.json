@@ -2,8 +2,9 @@
     "name":"sample_plant",
     "type":"P",
     "race":"sample_plants",
-    "CP":5,
+    "CP":2,
     "PP":5,
+    "HP":3,
     "habitation":"sea",
-    "src":"../src/texture/sample_creature.png"
+    "src":"../src/texture/samplewood.png"
 }
