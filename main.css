@@ -9,6 +9,7 @@
 
 body{margin:0px;
     user-select: none;
+    background-color: black;
 }
 
 #info{
@@ -20,6 +21,33 @@ body{margin:0px;
     display:block;
     color: aqua;
     user-select: none;
+}
+
+#playeradding{
+    display: none;
+    color:white;
+    position:absolute;
+    text-align: center;
+    width:100%;
+    top:20%;
+    font-size: 3vw;
+}
+
+input{
+    color:black;
+    left:50%;
+}
+
+#titleUI{
+    position:absolute;
+    color:white;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+#title{
+    font-size: 10vw;
 }
 
 #texture{

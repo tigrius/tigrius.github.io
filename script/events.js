@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {camera,scene} from './main.js';
+import {camera,scene,animate} from './main.js';
 import {areas} from './createBoard.js';
 
 document.addEventListener('keypress', keypress_event);
@@ -8,7 +8,12 @@ document.addEventListener('keyup', keyup_event);
 let selectedArea = null;
 let visibleTextureSample = false;
 
+
+
 window.addEventListener('click', (evt) => {
+    
+    
+
     const raycaster = new THREE.Raycaster();
     const vector = new THREE.Vector2(
       (evt.clientX / window.innerWidth) * 2 - 1,

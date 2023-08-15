@@ -6,7 +6,6 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 export const scene = new THREE.Scene();
 export const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-const controls = new OrbitControls(camera, document.body);
 
 
 
@@ -19,7 +18,10 @@ const controls = new OrbitControls(camera, document.body);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
-document.body.appendChild( renderer.domElement );
+const renderingwindow = renderer.domElement
+document.body.appendChild( renderingwindow );
+
+const controls = new OrbitControls(camera, renderingwindow);
 
 const pointlight = new THREE.PointLight(0xffffff,1,50);
 const pointlight2 = new THREE.PointLight(0xffffff,1,50);
@@ -27,8 +29,6 @@ const pointlight3 = new THREE.PointLight(0xffffff,1,50);
 const ambientlight = new THREE.AmbientLight(0xffffff,0.5);
 const geometry = new THREE.IcosahedronGeometry( 1, 0 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-
-const cube = new THREE.Mesh( geometry, material );
 
 controls.enableDamping = true;
 controls.dampingFactor = 0.3;
@@ -45,12 +45,40 @@ scene.add(ambientlight);
 
 let n_players = 3;
 let points = new Array(n_players);
+let players = new Array(n_players);
+let isGameOver = false;
+const playeradding = document.getElementById('playeradding');
+const titleUI = document.getElementById('titleUI');
+const addplayerbutton = document.getElementById('addplayer');
+titleUI.onclick = function(){
+    console.log("click");
+    titleUI.remove();
+    
+    playeradding.style.display = "block";
+};
+const gamestartbutton = document.getElementById('startgame');
+const playerlist = document.getElementById('playerlist')
+addplayerbutton.onclick = function(){
+    const inputplayer = document.createElement("input");
+    inputplayer.setAttribute("type","text");
+    playerlist.appendChild(inputplayer);
+}
+gamestartbutton.onclick = function(){
+    playeradding.remove();
+    animate();
+}
 
+//animate();
 
+/*while (!isGameOver){
+    for (let playing_player = 0; playing_player < n_players; playing_player++){
+        //alert(playing_player + 1 + "番目のプレイヤーのターン");
+        console.log("alert");
+    }
+    isGameOver = true;
+}*/
 
-
-function animate() {
+export function animate() {
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
 }
-animate();
