@@ -43,9 +43,10 @@ scene.add(pointlight2);
 scene.add(pointlight3);
 scene.add(ambientlight);
 
-let n_players = 3;
-let points = new Array(n_players);
-let players = new Array(n_players);
+let n_players = 1;
+let points = [];
+let players = [];
+
 let isGameOver = false;
 const playeradding = document.getElementById('playeradding');
 const titleUI = document.getElementById('titleUI');
@@ -58,14 +59,23 @@ titleUI.onclick = function(){
 };
 const gamestartbutton = document.getElementById('startgame');
 const playerlist = document.getElementById('playerlist')
+
+
 addplayerbutton.onclick = function(){
     const inputplayer = document.createElement("input");
     inputplayer.setAttribute("type","text");
+    inputplayer.classList.add("playerlist");
+    n_players++;
+    inputplayer.setAttribute("value","プレイヤー" + n_players);
     playerlist.appendChild(inputplayer);
 }
 gamestartbutton.onclick = function(){
+    for (let i = 0; i < n_players; i++){
+        players.push(playerlist.children[i].value);
+    }
     playeradding.remove();
     animate();
+    console.log(players);
 }
 
 //animate();
