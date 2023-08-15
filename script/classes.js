@@ -120,7 +120,7 @@ export class Area {
             canvas.height = canvasSize;
             const ctx = canvas.getContext('2d');
             ctx.strokeStyle = '#ff0000';
-            ctx.lineWidth = 5;
+            ctx.lineWidth = 10;
             ctx.beginPath();
             ctx.moveTo(0.5* canvasSize,0);
             ctx.lineTo(canvasSize,canvasSize * (Math.sqrt(3)/2));
@@ -138,7 +138,7 @@ export class Area {
             canvas.height = canvasSize;
             const ctx = canvas.getContext('2d');
             ctx.strokeStyle = '#333333';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 5;
             ctx.beginPath();
             ctx.moveTo(0.5* canvasSize,0);
             ctx.lineTo(canvasSize,canvasSize * (Math.sqrt(3)/2));
