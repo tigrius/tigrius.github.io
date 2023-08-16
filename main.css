@@ -58,3 +58,11 @@ body{margin:0px;
 #texture{
     position:absolute;
 }
+
+#UI{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display: none;
+    z-index: -1000;
+}

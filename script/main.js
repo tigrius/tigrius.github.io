@@ -59,7 +59,7 @@ titleUI.onclick = function(){
 };
 const gamestartbutton = document.getElementById('startgame');
 const playerlist = document.getElementById('playerlist')
-
+const UIframe = document.getElementById("UI");
 
 addplayerbutton.onclick = function(){
     const inputplayer = document.createElement("input");
@@ -75,8 +75,17 @@ gamestartbutton.onclick = function(){
     }
     playeradding.remove();
     animate();
-    console.log(players);
+    UIframe.style.display = "block";
+    
+    const playerpanel = document.createElement("div");
+    for (player of playerlist){
+        playerpanel.textContent = players;
+    }
+
+    UIframe.appendChild(playerpanel);
 }
+
+
 
 //animate();
 
